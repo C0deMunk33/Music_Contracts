@@ -17,7 +17,7 @@ contract Music_Core is ERC1155 {
   event Management_Changed(uint256 indexed ownership_id, address indexed new_manager);
 
   address controller;
-  constructor(string memory url) ERC1155(url){
+  constructor() ERC1155(""){
     entropy = uint256(keccak256(abi.encode(block.timestamp)));
     controller = msg.sender;
   }
@@ -223,6 +223,8 @@ contract Music_Core is ERC1155 {
       calc_owed(from, ids[token_idx]);
       calc_owed(to, ids[token_idx]);
     }
+
+
 
   }
 
